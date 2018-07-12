@@ -68,7 +68,7 @@
           </el-menu>
         </div>
         <div class="admin">
-          <el-dropdown trigger="click">
+          <el-dropdown :hide-on-click="false" trigger="click">
             <span class="el-dropdown-link">
               admin
               <i class="el-icon-arrow-down el-icon--right"></i>
@@ -81,8 +81,17 @@
               <el-dropdown-item>修改密码
                 <i class="el-icon-question"></i>
               </el-dropdown-item>
-              <el-dropdown-item>退出
-                <i class="el-icon-circle-plus"></i>
+              <el-dropdown-item @click="logout">
+                <el-popover placement="bottom" width="160" v-model="visible2">
+                  <p>你确定要退出系统吗？</p>
+                  <div style="text-align: right; margin: 0">
+                    <el-button size="mini" type="text" @click="visible2 = false">取消</el-button>
+                    <el-button type="primary" size="mini" @click="logout">确定</el-button>
+                  </div>
+                  <div slot="reference">退出
+                    <i class="el-icon-circle-plus"></i>
+                  </div>
+                </el-popover>
               </el-dropdown-item>
               <!-- <el-dropdown-item>双皮奶</el-dropdown-item>
               <el-dropdown-item>蚵仔煎</el-dropdown-item> -->
@@ -103,7 +112,8 @@ export default {
     return {
       isShow: true,
       routes: this.$router.options.routes,
-      firstMenuIndex: "/home"
+      firstMenuIndex: "/home",
+      visible2: false
     };
   },
   methods: {
@@ -120,6 +130,12 @@ export default {
     },
     drogAside: function() {
       this.isShow = !this.isShow;
+    },
+    logout: function(){
+      this.visible2=false;
+      this.$router.push({
+        path: '/login'
+      })
     }
   }
 };
@@ -225,8 +241,8 @@ $font-color: #fff;
   padding: 10px 0;
   background: #f9fafc;
 }
-.el-popper{
-  i{
+.el-popper {
+  i {
     float: right;
     margin: 10px auto;
   }
