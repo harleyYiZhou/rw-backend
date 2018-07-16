@@ -131,11 +131,11 @@ export default {
     drogAside: function() {
       this.isShow = !this.isShow;
     },
-    logout: function(){
-      this.visible2=false;
+    logout: function() {
+      this.visible2 = false;
       this.$router.push({
-        path: '/login'
-      })
+        path: "/login"
+      });
     }
   }
 };
@@ -234,17 +234,18 @@ $font-color: #fff;
     }
   }
 }
-.title {
-  width: 225px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 10px 0;
-  background: #f9fafc;
-}
+
 .el-popper {
   i {
     float: right;
     margin: 10px auto;
+  }
+  .title {
+    width: 225px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 0;
+    background: #f9fafc;
   }
 }
 </style>

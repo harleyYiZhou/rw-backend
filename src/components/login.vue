@@ -127,6 +127,7 @@ $light_gray: #eee;
     background-color: #fff;
     background: url('../assets/img/logo_zhong2.png') no-repeat center;
     height:200px;
+    width: 400px;
   }
   .login-form {
     position: absolute;
